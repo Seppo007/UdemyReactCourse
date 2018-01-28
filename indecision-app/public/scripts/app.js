@@ -18,6 +18,33 @@ var template = React.createElement(
     )
 );
 
+// Create a templateTwo var JSX expression
+// div
+//   h1 -> <Name>
+//   p -> Age: <Age>
+//   p -> Location: <Location>
+// Render templateTwo instead of template
+
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Sebastian Schalow'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Age: 29'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Location: Wolfsburg'
+    )
+);
+
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);

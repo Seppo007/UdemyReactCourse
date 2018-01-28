@@ -8,6 +8,21 @@ var template = (
     </div>
 );
 
+// Create a templateTwo var JSX expression
+// div
+//   h1 -> <Name>
+//   p -> Age: <Age>
+//   p -> Location: <Location>
+// Render templateTwo instead of template
+
+var templateTwo = (
+    <div>
+        <h1>Sebastian Schalow</h1>
+        <p>Age: 29</p>
+        <p>Location: Wolfsburg</p>
+    </div>
+);
+
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
