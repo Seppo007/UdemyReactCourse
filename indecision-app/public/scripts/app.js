@@ -25,23 +25,30 @@ var template = React.createElement(
 //   p -> Location: <Location>
 // Render templateTwo instead of template
 
+var user = {
+    name: 'Sebastian',
+    age: 29,
+    location: 'Wolfsburg'
+};
 var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        'Sebastian Schalow'
+        user.name
     ),
     React.createElement(
         'p',
         null,
-        'Age: 29'
+        'Age: ',
+        user.age
     ),
     React.createElement(
         'p',
         null,
-        'Location: Wolfsburg'
+        'Location: ',
+        user.location
     )
 );
 
