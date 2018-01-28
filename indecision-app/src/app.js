@@ -1,19 +1,26 @@
 console.log('App.js is running!');
 
-// create app object title/subtitle
-// use title/subtitle in the template
-// render template
+// only render the subtitle (and p tag) if subtitle exists - logical and operator
+// render new p tag - if options.length > 0 "Here are your options" "No options"
 
 var app = {
   title: 'Indecision App',
   subtitle: 'This is some info',
+  options: ['One', 'Two'],
 };
 
 // JSX - JavaScript XML
 var template = (
   <div>
     <h1>{app.title}</h1>
-    <p>{app.subtitle}</p>
+    {app.subtitle && <p>{app.subtitle}</p>}
+    {(app.options && app.options.length > 0)
+      ? 'Here are your options'
+      : 'No options'}
+    <ol>
+      <li>Item one</li>
+      <li>Item two</li>
+    </ol>
   </div>
 );
 
@@ -26,8 +33,6 @@ var user = {
 function getLocation(location) {
   if (location) {
     return <p>Location: {location}</p>;
-  } else {
-    return undefined;
   }
 }
 
@@ -41,4 +46,4 @@ var templateTwo = (
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);

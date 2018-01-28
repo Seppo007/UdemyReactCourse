@@ -2,13 +2,13 @@
 
 console.log('App.js is running!');
 
-// create app object title/subtitle
-// use title/subtitle in the template
-// render template
+// only render the subtitle (and p tag) if subtitle exists - logical and operator
+// render new p tag - if options.length > 0 "Here are your options" "No options"
 
 var app = {
   title: 'Indecision App',
-  subtitle: 'This is some info'
+  subtitle: 'This is some info',
+  options: ['One', 'Two']
 };
 
 // JSX - JavaScript XML
@@ -20,10 +20,25 @@ var template = React.createElement(
     null,
     app.title
   ),
-  React.createElement(
+  app.subtitle && React.createElement(
     'p',
     null,
     app.subtitle
+  ),
+  app.options && app.options.length > 0 ? 'Here are your options' : 'No options',
+  React.createElement(
+    'ol',
+    null,
+    React.createElement(
+      'li',
+      null,
+      'Item one'
+    ),
+    React.createElement(
+      'li',
+      null,
+      'Item two'
+    )
   )
 );
 
@@ -41,8 +56,6 @@ function getLocation(location) {
       'Location: ',
       location
     );
-  } else {
-    return undefined;
   }
 }
 
@@ -66,4 +79,4 @@ var templateTwo = React.createElement(
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
