@@ -2,9 +2,6 @@
 
 console.log('App.js is running!');
 
-// only render the subtitle (and p tag) if subtitle exists - logical and operator
-// render new p tag - if options.length > 0 "Here are your options" "No options"
-
 var app = {
   title: 'Indecision App',
   subtitle: 'This is some info',
@@ -46,6 +43,50 @@ var template = React.createElement(
   )
 );
 
+var count = 0;
+var addOne = function addOne() {
+  console.log('addOne');
+};
+
+// Challenge
+// Make button "-1" - setup minusOne function and register - log "minusOne"
+// Make reset button "reset" - setup reset function - log "reset"
+
+var minusOne = function minusOne() {
+  console.log('minusOne');
+};
+
+var reset = function reset() {
+  console.log('reset');
+};
+
+var templateTwo = React.createElement(
+  'div',
+  null,
+  React.createElement(
+    'h1',
+    null,
+    'Count: ',
+    count
+  ),
+  React.createElement(
+    'button',
+    { onClick: addOne },
+    '+1'
+  ),
+  React.createElement(
+    'button',
+    { onClick: minusOne },
+    '-1'
+  ),
+  React.createElement(
+    'button',
+    { onClick: reset },
+    'reset'
+  )
+);
+console.log(templateTwo);
+
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
