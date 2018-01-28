@@ -52,16 +52,14 @@ var user = {
   location: 'Wolfsburg'
 };
 
-function getLocation(location) {
-  if (location) {
-    return React.createElement(
-      'p',
-      null,
-      'Location: ',
-      location
-    );
-  }
-}
+var getLocation = function getLocation(loc) {
+  return loc ? React.createElement(
+    'p',
+    null,
+    'Location: ',
+    loc
+  ) : undefined;
+};
 
 var templateTwo = React.createElement(
   'div',
