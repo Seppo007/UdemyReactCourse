@@ -28,7 +28,7 @@ var IndecisionApp = function (_React$Component) {
         React.createElement(Header, { title: 'Indecision',
           subtitle: 'Put your life in the hands of a computer' }),
         React.createElement(Action, null),
-        React.createElement(Options, null),
+        React.createElement(Options, { options: options }),
         React.createElement(AddOption, null)
       );
     }
@@ -36,6 +36,9 @@ var IndecisionApp = function (_React$Component) {
 
   return IndecisionApp;
 }(React.Component);
+
+// Setup options prop for Options component
+// Render the length of the array
 
 var Header = function (_React$Component2) {
   _inherits(Header, _React$Component2);
@@ -111,6 +114,12 @@ var Options = function (_React$Component4) {
       return React.createElement(
         'div',
         null,
+        React.createElement(
+          'p',
+          null,
+          'length of props.options: ',
+          this.props.options.length
+        ),
         React.createElement(Option, null),
         React.createElement(Option, null)
       );
