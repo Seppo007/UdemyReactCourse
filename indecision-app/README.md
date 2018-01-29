@@ -12,4 +12,4 @@
 
 ### Setting up the transpiler (React JSX &rarr; ES5)
 1. Run the following command from the root folder to let babel always transpile your React-Code 
-   to native ES5 Code &rarr; ```babel src\app.js --out-file=public/scripts/app.js --presets=env,react --watch```
+   to native ES5 Code &rarr; ```babel <pathToYourJSFile> --out-file=public/scripts/app.js --presets=env,react --watch```
