@@ -17,6 +17,13 @@ const onFormSubmit = (e) => {
   }
 };
 
+const removeAll = (e) => {
+  if (app.options.length !== 0) {
+    app.options = [];
+    renderApp();
+  }
+};
+
 // JSX - JavaScript XML
 
 const appRoot = document.getElementById('app');
@@ -39,6 +46,7 @@ const renderApp = () => {
         <input type="text" name="option"/>
         <button>Add option</button>
       </form>
+      <button onClick={removeAll}>remove all options</button>
     </div>
   );
   ReactDOM.render(template, appRoot);
