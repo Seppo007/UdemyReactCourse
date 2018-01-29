@@ -114,14 +114,9 @@ var Options = function (_React$Component4) {
       return React.createElement(
         'div',
         null,
-        React.createElement(
-          'p',
-          null,
-          'length of props.options: ',
-          this.props.options.length
-        ),
-        React.createElement(Option, null),
-        React.createElement(Option, null)
+        this.props.options.map(function (option) {
+          return React.createElement(Option, { key: option, optionText: option });
+        })
       );
     }
   }]);
@@ -144,15 +139,14 @@ var Option = function (_React$Component5) {
       return React.createElement(
         'div',
         null,
-        'Option component here'
+        'Option: ',
+        this.props.optionText
       );
     }
   }]);
 
   return Option;
 }(React.Component);
-
-// Option -> Option component here
 
 var AddOption = function (_React$Component6) {
   _inherits(AddOption, _React$Component6);
