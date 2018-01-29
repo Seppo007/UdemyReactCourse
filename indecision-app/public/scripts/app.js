@@ -1,50 +1,35 @@
 'use strict';
 
-var app = {
-  title: 'Visibility Toggle',
-  btnShow: 'Show details',
-  btnHide: 'Hide details',
-  showText: false,
-  details: 'Hey. These are some details you can see now!'
-};
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-// JSX - JavaScript XML
-var appRoot = document.getElementById('app');
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var onBtnClick = function onBtnClick(e) {
-  app.showText = !app.showText;
-  console.log(app.showText);
-  render();
-};
+var Person = function () {
+  function Person() {
+    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Anonymous';
+    var age = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
-var renderDetails = function renderDetails() {
-  if (app.showText) {
-    return React.createElement(
-      'p',
-      null,
-      app.details
-    );
+    _classCallCheck(this, Person);
+
+    this.name = name;
+    this.age = age;
   }
-};
 
-var render = function render() {
-  var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-      'h1',
-      null,
-      app.title
-    ),
-    React.createElement(
-      'button',
-      { onClick: onBtnClick },
-      app.showText ? app.btnHide : app.btnShow
-    ),
-    renderDetails()
-  );
+  _createClass(Person, [{
+    key: 'getGreeting',
+    value: function getGreeting() {
+      return 'Hi ' + this.name + '!';
+    }
+  }, {
+    key: 'getDescription',
+    value: function getDescription() {
+      return this.name + ' is ' + this.age + ' year(s) old.';
+    }
+  }]);
 
-  ReactDOM.render(template, appRoot);
-};
+  return Person;
+}();
 
-render();
+var me = new Person('Sebastian Schalow', 29);
+console.log(me.getGreeting());
+console.log(me.getDescription());
