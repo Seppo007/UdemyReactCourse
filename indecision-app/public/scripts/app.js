@@ -20,6 +20,7 @@ var IndecisionApp = function (_React$Component) {
       options: ['One', 'Two', 'Three']
     };
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
+    _this.handlePick = _this.handlePick.bind(_this);
     return _this;
   }
 
@@ -30,8 +31,15 @@ var IndecisionApp = function (_React$Component) {
         return { options: [] };
       });
     }
+  }, {
+    key: 'handlePick',
+    value: function handlePick() {
+      var optLength = this.state.options.length;
+      alert(this.state.options[Math.floor(Math.random() * optLength)]);
+    }
 
-    // handleDeleteOptions
+    // handlePick - pass down to Action and setup onClick - bind here
+    //   randomly pick an option and alert it
 
   }, {
     key: 'render',
@@ -41,7 +49,9 @@ var IndecisionApp = function (_React$Component) {
         null,
         React.createElement(Header, { title: 'Indecision',
           subtitle: 'Put your life in the hands of a computer' }),
-        React.createElement(Action, { hasOptions: this.state.options.length > 0 }),
+        React.createElement(Action, {
+          hasOptions: this.state.options.length > 0,
+          handlePick: this.handlePick }),
         React.createElement(Options, {
           options: this.state.options,
           handleDeleteOptions: this.handleDeleteOptions
@@ -53,9 +63,6 @@ var IndecisionApp = function (_React$Component) {
 
   return IndecisionApp;
 }(React.Component);
-
-// Setup options prop for Options component
-// Render the length of the array
 
 var Header = function (_React$Component2) {
   _inherits(Header, _React$Component2);
@@ -99,11 +106,6 @@ var Action = function (_React$Component3) {
   }
 
   _createClass(Action, [{
-    key: 'handlePick',
-    value: function handlePick() {
-      alert('handlePick');
-    }
-  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
@@ -111,7 +113,8 @@ var Action = function (_React$Component3) {
         null,
         React.createElement(
           'button',
-          { disabled: !this.props.hasOptions, onClick: this.handlePick },
+          { disabled: !this.props.hasOptions,
+            onClick: this.props.handlePick },
           'What should I do?'
         )
       );
@@ -174,10 +177,6 @@ var Option = function (_React$Component5) {
 
   return Option;
 }(React.Component);
-
-// 1. Setup the form with text input and submit button
-// 2. Wire up onSubmit
-// 3. handleAddOption -> fetch the value type -> if value, then alert
 
 var AddOption = function (_React$Component6) {
   _inherits(AddOption, _React$Component6);

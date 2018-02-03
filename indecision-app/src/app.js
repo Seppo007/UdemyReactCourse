@@ -5,6 +5,7 @@ class IndecisionApp extends React.Component {
       options: ['One', 'Two', 'Three'],
     };
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+    this.handlePick = this.handlePick.bind(this);
   }
 
   handleDeleteOptions() {
@@ -13,14 +14,22 @@ class IndecisionApp extends React.Component {
     });
   }
 
-  // handleDeleteOptions
+  handlePick() {
+    const optLength = this.state.options.length;
+    alert(this.state.options[(Math.floor(Math.random() * optLength))]);
+  }
+
+  // handlePick - pass down to Action and setup onClick - bind here
+  //   randomly pick an option and alert it
 
   render() {
     return (
       <div>
         <Header title="Indecision"
                 subtitle="Put your life in the hands of a computer"/>
-        <Action hasOptions={this.state.options.length > 0}/>
+        <Action
+          hasOptions={this.state.options.length > 0}
+          handlePick={this.handlePick}/>
         <Options
           options={this.state.options}
           handleDeleteOptions={this.handleDeleteOptions}
@@ -31,8 +40,6 @@ class IndecisionApp extends React.Component {
   }
 }
 
-// Setup options prop for Options component
-// Render the length of the array
 
 class Header extends React.Component {
   render() {
@@ -45,21 +52,20 @@ class Header extends React.Component {
   }
 }
 
-class Action extends React.Component {
-  handlePick() {
-    alert('handlePick');
-  }
 
+class Action extends React.Component {
   render() {
     return (
       <div>
-        <button disabled={!this.props.hasOptions} onClick={this.handlePick}>What
+        <button disabled={!this.props.hasOptions}
+                onClick={this.props.handlePick}>What
           should I do?
         </button>
       </div>
     );
   }
 }
+
 
 class Options extends React.Component {
 
@@ -78,15 +84,13 @@ class Options extends React.Component {
   }
 }
 
+
 class Option extends React.Component {
   render() {
     return <div>Option: {this.props.optionText}</div>;
   }
 }
 
-// 1. Setup the form with text input and submit button
-// 2. Wire up onSubmit
-// 3. handleAddOption -> fetch the value type -> if value, then alert
 
 class AddOption extends React.Component {
   handleAddOption(e) {
@@ -109,5 +113,6 @@ class AddOption extends React.Component {
     );
   }
 }
+
 
 ReactDOM.render(<IndecisionApp/>, document.getElementById('app'));
