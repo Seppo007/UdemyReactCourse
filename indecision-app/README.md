@@ -8,5 +8,5 @@
 5. A browser should open automatically presenting your *index.html*
 
 ### Setting up the transpiler (React JSX &rarr; ES5)
-1. Run the following command from the root folder to let babel always transpile your React-Code 
-   to native ES5 Code &rarr; ```yarn run build```
+1. Run the following command from the root folder to let webpack always transpile your React-Code 
+   to native ES5 Code on the fly &rarr; ```yarn run build```
