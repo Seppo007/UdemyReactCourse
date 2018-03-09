@@ -1,5 +1,5 @@
 // import './utils.js';
-import { canDrink, isAdult } from './person';
+import isSenior, { canDrink, isAdult } from './person';
 
 // console.log('app.js is running');
 // console.log(square(4));
@@ -7,3 +7,4 @@ import { canDrink, isAdult } from './person';
 
 console.log(isAdult(18));
 console.log(canDrink(19));
+console.log(isSenior(65));
