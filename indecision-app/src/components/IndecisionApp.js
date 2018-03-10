@@ -7,6 +7,10 @@ import Options from './Options';
 
 class IndecisionApp extends React.Component {
 
+  state = {
+    options: [],
+  };
+
   handleDeleteOptions = () => {
     this.setState(() => ({options: []}));
   };
@@ -22,7 +26,7 @@ class IndecisionApp extends React.Component {
     const optLength = this.state.options.length;
     alert(this.state.options[(Math.floor(Math.random() * optLength))]);
   };
-  
+
   handleAddOption = (option) => {
     if (!option) {
       return 'Enter valid value to add item';
@@ -32,13 +36,6 @@ class IndecisionApp extends React.Component {
 
     this.setState((prevState) => ({options: prevState.options.concat(option)}));
   };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      options: props.options,
-    };
-  }
 
   componentDidMount() {
     try {
