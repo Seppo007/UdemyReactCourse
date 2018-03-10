@@ -6,12 +6,35 @@ import Header from './Header';
 import Options from './Options';
 
 class IndecisionApp extends React.Component {
+
+  handleDeleteOptions = () => {
+    this.setState(() => ({options: []}));
+  };
+
+  handleDeleteOption = (optionToRemove) => {
+    this.setState((prevState) => ({
+      options: prevState.options.filter(
+        (option) => (optionToRemove !== option)),
+    }));
+  };
+
+  handlePick = () => {
+    const optLength = this.state.options.length;
+    alert(this.state.options[(Math.floor(Math.random() * optLength))]);
+  };
+  
+  handleAddOption = (option) => {
+    if (!option) {
+      return 'Enter valid value to add item';
+    } else if (this.state.options.indexOf(option) > -1) {
+      return 'This is option already exists';
+    }
+
+    this.setState((prevState) => ({options: prevState.options.concat(option)}));
+  };
+
   constructor(props) {
     super(props);
-    this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-    this.handlePick = this.handlePick.bind(this);
-    this.handleAddOption = this.handleAddOption.bind(this);
-    this.handleDeleteOption = this.handleDeleteOption.bind(this);
     this.state = {
       options: props.options,
     };
@@ -38,32 +61,6 @@ class IndecisionApp extends React.Component {
 
   componentWillUnmount() {
     console.log('IndecisionApp will unmount');
-  }
-
-  handleDeleteOptions() {
-    this.setState(() => ({options: []}));
-  }
-
-  handleDeleteOption(optionToRemove) {
-    this.setState((prevState) => ({
-      options: prevState.options.filter(
-        (option) => (optionToRemove !== option)),
-    }));
-  }
-
-  handlePick() {
-    const optLength = this.state.options.length;
-    alert(this.state.options[(Math.floor(Math.random() * optLength))]);
-  }
-
-  handleAddOption(option) {
-    if (!option) {
-      return 'Enter valid value to add item';
-    } else if (this.state.options.indexOf(option) > -1) {
-      return 'This is option already exists';
-    }
-
-    this.setState((prevState) => ({options: prevState.options.concat(option)}));
   }
 
   render() {
