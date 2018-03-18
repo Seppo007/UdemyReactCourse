@@ -2,11 +2,9 @@
 
 ### How to run?
 1. Install yarn via npm &rarr; ```npm install yarn -g```
-2. Install live-server via yarn &rarr; ```yarn add live-server```
-3. Install babel via yarn &rarr; ```yarn add babel@6.24.1```
-4. Run ```yarn run serve``` to start live-server
-5. A browser should open automatically presenting your *index.html*
+2. Install all dependencies via ```yarn```
+3. Run ```yarn dev-server``` to start the webpack live-server
+4. Navigate to http://localhost:8080 to open Indecision App
 
-### Setting up the transpiler (React JSX &rarr; ES5)
-1. Run the following command from the root folder to let webpack always transpile your React-Code 
-   to native ES5 Code on the fly &rarr; ```yarn run build```
+### Building an transpilled output file (bundle.js)
+1. Run ```yarn build``` to create a transpilled (ES5) output file in public/
