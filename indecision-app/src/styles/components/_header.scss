@@ -5,6 +5,12 @@
   padding: $m-size 0;
 }
 
+@media (min-width: $desktop-breakpoint) {
+  .header {
+    margin-bottom: $xl-size;
+  }
+}
+
 // BEM block element modifier
 .header__title {
   font-size: $l-size;
@@ -16,10 +22,4 @@
   font-size: $m-size;
   font-weight: 500;
   margin: 0;
-}
-
-@media (min-width: $desktop-breakpoint) {
-  .header {
-    margin-bottom: $xl-size;
-  }
 }
