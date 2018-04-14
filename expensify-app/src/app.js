@@ -32,9 +32,9 @@ const routes = (
   <BrowserRouter>
     <div>
       <Route path="/" component={ExpenseDashboardPage} exact={true}/>
-      <Route path="/create" component={AddExpensePage} exact={true}/>
-      <Route path="/edit" component={EditExpensePage} exact={true}/>
-      <Route path="/help" component={HelpPage} exact={true}/>
+      <Route path="/create" component={AddExpensePage}/>
+      <Route path="/edit" component={EditExpensePage}/>
+      <Route path="/help" component={HelpPage}/>
     </div>
   </BrowserRouter>
 );
