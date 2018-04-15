@@ -1,35 +1,10 @@
 import React from 'react';
 import {BrowserRouter, NavLink, Route, Switch} from "react-router-dom";
-
-const ExpenseDashboardPage = () => (
-  <div>
-    This is from my dashboard component
-  </div>
-);
-
-const AddExpensePage = () => (
-  <div>
-    This is from my add expense component
-  </div>
-);
-
-const EditExpensePage = () => (
-  <div>
-    This is from my edit expense component
-  </div>
-);
-
-const HelpPage = () => (
-  <div>
-    This is from my help component
-  </div>
-);
-
-const NotFoundPage = () => (
-  <div>
-    404! - <Link to="/">Go home</Link>
-  </div>
-);
+import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
+import AddExpensePage from "../components/AddExpensePage";
+import EditExpensePage from "../components/EditExpensePage";
+import HelpPage from "../components/HelpPage";
+import NotFoundPage from "../components/NotFoundPage";
 
 const AppRouter = () => (
   <BrowserRouter>
