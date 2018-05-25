@@ -17,6 +17,7 @@ const store = configureStore();
 // getVisibleExpenses -> print visible one to screen
 store.dispatch(addExpense({
   description: 'Water bill',
+  amount: 4500,
 }));
 
 store.dispatch(addExpense({
@@ -24,6 +25,8 @@ store.dispatch(addExpense({
 }));
 
 store.dispatch(setTextFilter('water'));
+
+setTimeout(() => store.dispatch(setTextFilter('bill')), 3000);
 
 const state = store.getState();
 console.log(getVisibleExpenses(state.expenses, state.filters));
